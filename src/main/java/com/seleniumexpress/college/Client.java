@@ -11,12 +11,13 @@ public class Client {
 //        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
         // Use the CollegeConfig class instead of beans.xml
-        ApplicationContext context = new AnnotationConfigApplicationContext(CollegeConfig.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(CollegeConfig.class);
 
         System.out.println("CollegeConfig.class used for configuration");
-        College college = context.getBean("collegeBean", College.class);
+        College college = context.getBean("college", College.class);
         System.out.println("The college object created by spring is: " + college);
         college.test();
+        context.close();
 
     }
 
